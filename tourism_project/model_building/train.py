@@ -269,8 +269,9 @@ for model_name, (classifier, param_grid) in models.items():
     input_example=input_example,
     skops_trusted_types=[
     "numpy.dtype",
-    "sklearn.tree._tree.Tree",]
-     )
+    "sklearn.tree._tree.Tree",
+    "xgboost.core.Booster",
+    "xgboost.sklearn.XGBClassifier",]     )
         print("Best parameters:", grid_search.best_params_)
         print(f"Accuracy:  {accuracy:.4f}")
         print(f"Precision: {precision:.4f}")
