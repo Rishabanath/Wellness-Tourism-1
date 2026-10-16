@@ -263,12 +263,12 @@ for model_name, (classifier, param_grid) in models.items():
 
         # Modern MLflow model logging API.
         mlflow.sklearn.log_model(
-            sk_model=best_model,
-            name="model",
-            signature=signature,
-            input_example=input_example
-        )
-
+    sk_model=best_model,
+    name="model",
+    signature=signature,
+    input_example=input_example,
+    skops_trusted_types=["numpy.dtype"]
+     )
         print("Best parameters:", grid_search.best_params_)
         print(f"Accuracy:  {accuracy:.4f}")
         print(f"Precision: {precision:.4f}")
